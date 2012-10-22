@@ -11,10 +11,10 @@ end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
-Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+Then /I should see (.*) before (.*)/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.content  is the entire content of the page as a string.
-  flunk "Unimplemented"
+  "Then I should see /#{e1}.+#{e2}/m"
 end
 
 # Make it easier to express checking or unchecking several boxes at once
