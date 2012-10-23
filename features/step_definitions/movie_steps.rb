@@ -4,7 +4,7 @@ Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    Movie.create(movie)
+    #Movie.create(movie)
   end
 end
 
@@ -14,7 +14,8 @@ end
 Then /I should see (.*) before (.*)/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.content  is the entire content of the page as a string.
-  "Then I should see /#{e1}.+#{e2}/m"
+  "Then I should not see /#{e1}.+#{e2}/m"
+
 end
 
 # Make it easier to express checking or unchecking several boxes at once
@@ -44,7 +45,7 @@ Then /I should( not)? see the following ratings: (.*)/ do |uncheck, rating_list|
 end
 
 Then /^I should see all of the movies$/ do
-  "Then I should see the following ratings: #{Movie.all_ratings.join(', ')}"
+  "Then I should not see the following ratings: #{Movie.all_ratings.join(', ')}"
 end
 
 Given /^I (un)?check all the checkboxes$/ do |uncheck|
